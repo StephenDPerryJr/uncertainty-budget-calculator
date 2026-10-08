@@ -1,0 +1,29 @@
+{
+  "name": "uncertainty-budget-app",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Uncertainty Budget Calculator Made Simple - GUM / NIST TN 1297 / ISO/IEC 17025 uncertainty budgets in the browser",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --port 4173 --host 127.0.0.1",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc -b --noEmit",
+    "screenshots": "node scripts/screenshots.mjs"
+  },
+  "dependencies": {
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^4.7.0",
+    "playwright-core": "^1.64.0",
+    "typescript": "5.6",
+    "vite": "^6.4.4",
+    "vitest": "^3.2.7"
+  }
+}

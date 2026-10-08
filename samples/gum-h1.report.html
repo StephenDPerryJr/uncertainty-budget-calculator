@@ -1,0 +1,158 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>GUM H.1 – End-gauge calibration (worked example) – Uncertainty budget</title>
+<style>
+  body{font:12px/1.4 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#111;margin:24px;}
+  h1{font-size:18px;margin:0 0 4px} h2{font-size:14px;margin:18px 0 6px;border-bottom:1px solid #999}
+  table{border-collapse:collapse;width:100%;margin:6px 0} th,td{border:1px solid #bbb;padding:3px 5px;vertical-align:top;text-align:left}
+  th{background:#eef2f7;font-size:11px} td.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .meta td{border:none;padding:1px 8px 1px 0} .sym{font-style:italic;color:#333} .note{color:#555;font-size:10.5px}
+  .result{border:2px solid #1d4ed8;padding:8px 12px;margin:10px 0;background:#f3f6ff} .big{font-size:16px;font-weight:700}
+  .summary td{padding:3px 8px} li.err{color:#b00020} .foot{color:#555;font-size:10.5px;margin-top:16px}
+  .sig{margin-top:28px;display:flex;gap:40px} .sig div{border-top:1px solid #333;padding-top:3px;min-width:200px}
+  @media print{body{margin:10mm} @page{size:landscape;margin:10mm} tr{page-break-inside:avoid}}
+</style></head><body>
+<h1>Measurement uncertainty budget – GUM H.1 – End-gauge calibration (worked example)</h1>
+<table class="meta"><tr><td><b>Laboratory:</b> Worked example</td><td><b>Prepared by:</b> —</td><td><b>Date:</b> 2026-10-08</td></tr>
+<tr><td><b>Procedure:</b> JCGM 100:2008 Annex H.1</td><td><b>Equipment:</b> Comparator, standard end gauge</td><td><b>Conditions:</b> Bed temperature (19.9 ± 0.5) °C</td></tr></table>
+<h2>Measurand and measurement model</h2>
+<p><b>Length of end gauge at 20 °C</b> (l, mm). Nominal 50 mm end gauge calibrated by comparison with a standard of the same nominal length (JCGM 100:2008, H.1).</p>
+<p>Model: <code>l = lS + d - lS*(dalpha*theta + alphaS*dtheta)</code>. Sensitivity coefficients marked “model” are the partial derivatives ∂f/∂x<sub>i</sub> evaluated numerically at the input estimates (GUM 5.1.3).</p><table class="vars"><thead><tr><th>Variable</th><th>Estimate</th><th>Unit</th><th>Description</th></tr></thead><tbody><tr><td>lS</td><td class="n">50.000623</td><td>mm</td><td>Length of the standard at 20 °C (certificate)</td></tr><tr><td>d</td><td class="n">2.15e-4</td><td>mm</td><td>Mean measured difference (5 readings) = 215 nm</td></tr><tr><td>alphaS</td><td class="n">1.15e-5</td><td>1/°C</td><td>Thermal expansion coefficient of standard</td></tr><tr><td>theta</td><td class="n">-0.1</td><td>°C</td><td>Deviation of bed temperature from 20 °C</td></tr><tr><td>dalpha</td><td class="n">0</td><td>1/°C</td><td>Difference in expansion coefficients</td></tr><tr><td>dtheta</td><td class="n">0</td><td>°C</td><td>Difference in temperature of the gauges</td></tr></tbody></table>
+<h2>Uncertainty budget</h2>
+<table><thead><tr><th>#</th><th>Component</th><th>Source of data</th><th>Type</th><th>Distribution</th><th>Input value</th><th>Divisor</th><th>u(x<sub>i</sub>)</th><th>c<sub>i</sub></th><th>c<sub>i</sub>·u(x<sub>i</sub>)<br>[mm]</th><th>ν<sub>i</sub></th><th>% contrib.</th></tr></thead>
+<tbody><tr>
+        <td>1</td>
+        <td><strong>Calibration of the standard end gauge</strong><br><span class="sym">u(lS)</span></td>
+        <td>Calibration certificate of the reference standard<br><span class="note">Certificate: U = 0.075 µm, k = 3, νeff = 18 (GUM H.1.3.1)</span></td>
+        <td>B</td>
+        <td>Normal (U, k)</td>
+        <td class="n">7.5e-5 mm</td>
+        <td class="n">k = 3</td>
+        <td class="n">2.5e-5 mm</td>
+        <td class="n">1</td>
+        <td class="n">2.5e-5</td>
+        <td class="n">18</td>
+        <td class="n">62.4 %</td>
+      </tr><tr>
+        <td>2</td>
+        <td><strong>Repeated observations of the difference</strong><br><span class="sym">u(d̄)</span></td>
+        <td>Historical / pooled data<br><span class="note">Pooled s = 13 nm from 25 observations; mean of 5 readings (GUM H.1.3.2)</span></td>
+        <td>A</td>
+        <td>Type A (pooled)</td>
+        <td class="n">s<sub>p</sub> = 1.3e-5, m = 5 mm</td>
+        <td class="n">√5</td>
+        <td class="n">5.814e-6 mm</td>
+        <td class="n">1</td>
+        <td class="n">5.814e-6</td>
+        <td class="n">24</td>
+        <td class="n">3.4 %</td>
+      </tr><tr>
+        <td>3</td>
+        <td><strong>Comparator – random effects</strong><br><span class="sym">u(d1)</span></td>
+        <td>Calibration certificate of the reference standard<br><span class="note">Comparator certificate: ±0.01 µm at 95 %, 6 replicates (ν = 5)</span></td>
+        <td>B</td>
+        <td>Normal (U, p %)</td>
+        <td class="n">1e-5 mm</td>
+        <td class="n">t(95 %, ν=5) = 2.571</td>
+        <td class="n">3.89e-6 mm</td>
+        <td class="n">1</td>
+        <td class="n">3.89e-6</td>
+        <td class="n">5</td>
+        <td class="n">1.5 %</td>
+      </tr><tr>
+        <td>4</td>
+        <td><strong>Comparator – systematic effects</strong><br><span class="sym">u(d2)</span></td>
+        <td>Calibration certificate of the reference standard<br><span class="note">Comparator certificate: 0.02 µm at &quot;three sigma&quot;; reliable to 25 % -&gt; ν = 8</span></td>
+        <td>B</td>
+        <td>Normal (U, k)</td>
+        <td class="n">2e-5 mm</td>
+        <td class="n">k = 3</td>
+        <td class="n">6.667e-6 mm</td>
+        <td class="n">1</td>
+        <td class="n">6.667e-6</td>
+        <td class="n">8</td>
+        <td class="n">4.4 %</td>
+      </tr><tr>
+        <td>5</td>
+        <td><strong>Thermal expansion coefficient of standard</strong><br><span class="sym">u(αS)</span></td>
+        <td>Reference data / handbooks<br><span class="note">αS = 11.5e-6 /°C, rectangular ±2e-6 /°C (GUM H.1.3.3)</span></td>
+        <td>B</td>
+        <td>Rectangular</td>
+        <td class="n">2e-6 1/°C</td>
+        <td class="n">√3</td>
+        <td class="n">1.155e-6 1/°C</td>
+        <td class="n">0</td>
+        <td class="n">0</td>
+        <td class="n">∞</td>
+        <td class="n">0.0 %</td>
+      </tr><tr>
+        <td>6</td>
+        <td><strong>Mean temperature of bed</strong><br><span class="sym">u(θ̄)</span></td>
+        <td>Environmental conditions<br><span class="note">Reported (19.9 ± 0.5) °C; u(θ̄) = 0.2 °C (GUM H.1.3.4)</span></td>
+        <td>B</td>
+        <td>Standard uncertainty</td>
+        <td class="n">0.2 °C</td>
+        <td class="n">1</td>
+        <td class="n">0.2 °C</td>
+        <td class="n">0</td>
+        <td class="n">0</td>
+        <td class="n">∞</td>
+        <td class="n">0.0 %</td>
+      </tr><tr>
+        <td>7</td>
+        <td><strong>Cyclic variation of room temperature</strong><br><span class="sym">u(Δ)</span></td>
+        <td>Environmental conditions<br><span class="note">Cyclic ±0.5 °C, U-shaped (arcsine) (GUM H.1.3.4)</span></td>
+        <td>B</td>
+        <td>U-shaped</td>
+        <td class="n">0.5 °C</td>
+        <td class="n">√2</td>
+        <td class="n">0.3536 °C</td>
+        <td class="n">0</td>
+        <td class="n">0</td>
+        <td class="n">∞</td>
+        <td class="n">0.0 %</td>
+      </tr><tr>
+        <td>8</td>
+        <td><strong>Difference in expansion coefficients</strong><br><span class="sym">u(δα)</span></td>
+        <td>Reference data / handbooks<br><span class="note">Bounds ±1e-6 /°C rectangular, reliable to 10 % -&gt; ν = 50 (GUM H.1.3.5)</span></td>
+        <td>B</td>
+        <td>Rectangular</td>
+        <td class="n">1e-6 1/°C</td>
+        <td class="n">√3</td>
+        <td class="n">5.774e-7 1/°C</td>
+        <td class="n">5.0001</td>
+        <td class="n">2.887e-6</td>
+        <td class="n">50.0</td>
+        <td class="n">0.8 %</td>
+      </tr><tr>
+        <td>9</td>
+        <td><strong>Difference in temperature of gauges</strong><br><span class="sym">u(δθ)</span></td>
+        <td>Environmental conditions<br><span class="note">Bounds ±0.05 °C rectangular, reliable to 50 % -&gt; ν = 2 (GUM H.1.3.6)</span></td>
+        <td>B</td>
+        <td>Rectangular</td>
+        <td class="n">0.05 °C</td>
+        <td class="n">√3</td>
+        <td class="n">0.02887 °C</td>
+        <td class="n">-5.7501e-4</td>
+        <td class="n">-1.66e-5</td>
+        <td class="n">2</td>
+        <td class="n">27.5 %</td>
+      </tr></tbody></table>
+
+<h2>Results</h2>
+<table class="summary">
+<tr><td>Estimate of the measurand y</td><td class="n">50.000838 mm</td></tr>
+<tr><td>Combined standard uncertainty u<sub>c</sub>(y)</td><td class="n">3.1658e-5 mm</td></tr>
+<tr><td>Relative combined standard uncertainty u<sub>c</sub>/|y|</td><td class="n">6.33e-7</td></tr>
+<tr><td>Effective degrees of freedom ν<sub>eff</sub> (Welch–Satterthwaite)</td><td class="n">16.7</td></tr>
+<tr><td>Coverage</td><td class="n">p = 99 %, ν used = 16 (truncated, GUM G.6.4)</td></tr>
+<tr><td>Coverage factor k</td><td class="n">2.921</td></tr>
+<tr><td>Expanded uncertainty U = k·u<sub>c</sub></td><td class="n">9.2467e-5 mm</td></tr>
+</table>
+<div class="result"><div class="big">l = (50.000838 ± 0.000092) mm</div>
+<div>l = (50.000838 ± 0.000092) mm. The reported expanded uncertainty U = k·uc is based on a combined standard uncertainty uc = 0.000032 mm multiplied by a coverage factor k = 2.921 from the t-distribution for ν = 16 (νeff = 16.7), level of confidence approximately 99 %, defining an interval estimated to have a level of confidence of approximately 99 %.</div></div>
+<h2>Notes and warnings</h2><ul><li>Thermal expansion coefficient of standard has sensitivity c = 0 and contributes nothing to first order (consider second-order terms, GUM 5.1.2 note, H.1.7).</li><li>Mean temperature of bed has sensitivity c = 0 and contributes nothing to first order (consider second-order terms, GUM 5.1.2 note, H.1.7).</li><li>Cyclic variation of room temperature has sensitivity c = 0 and contributes nothing to first order (consider second-order terms, GUM 5.1.2 note, H.1.7).</li></ul>
+<h2>Notes</h2><p>Published result: uc = 32 nm, νeff = 16, k = 2.92, U99 = 93 nm (GUM multiplies the rounded uc = 32 nm by 2.92).</p>
+<h2>Method</h2><p>Uncertainty evaluated per JCGM 100:2008 (GUM) and NIST TN 1297: standard uncertainties from Type A (statistical) and Type B evaluations, combined by the law of propagation of uncertainty (first-order Taylor series, GUM 5.1.2 / 5.2.2), effective degrees of freedom by the Welch–Satterthwaite formula (GUM G.4.1), coverage factor from the Student t-distribution (GUM G.3/G.6.4), and reported to two significant digits (GUM 7.2.6). Rounding: rounded to nearest.</p>
+<h2>References</h2><ol><li>JCGM 100:2008 (GUM 1995 with minor corrections), Evaluation of measurement data – Guide to the expression of uncertainty in measurement.</li><li>NIST Technical Note 1297 (1994), B. N. Taylor &amp; C. E. Kuyatt, Guidelines for Evaluating and Expressing the Uncertainty of NIST Measurement Results.</li><li>ISO/IEC 17025:2017, General requirements for the competence of testing and calibration laboratories, clause 7.6 (evaluation of measurement uncertainty) and 7.8.4 (calibration certificates).</li><li>ILAC P14:09/2020, ILAC Policy for Measurement Uncertainty in Calibration.</li><li>EA-4/02 M:2022, Evaluation of the Uncertainty of Measurement in Calibration.</li></ol>
+<div class="sig"><div>Prepared by / date</div><div>Reviewed / approved by / date</div></div>
+<p class="foot">Generated by Uncertainty Budget Calculator Made Simple on 2026-10-08 23:32 UTC. The laboratory remains responsible for the validity of the model, inputs and their sources (ISO/IEC 17025 7.6).</p>
+</body></html>

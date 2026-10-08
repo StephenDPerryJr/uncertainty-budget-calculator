@@ -1,0 +1,26 @@
+Uncertainty budget,Digital caliper at 100 mm (illustrative)
+Measurand,Error of indication of a 0–150 mm digital caliper at 100 mm,E,mm
+Laboratory,,Prepared by,,Date,2026-10-08
+
+#,Component,Symbol,Type,Source,Source details,Distribution,Input value,Input scale,Input unit,Divisor,Divisor value,u(xi),ci,ci*u(xi),Degrees of freedom,% contribution
+1,Gauge block calibration,u(Lgb),B,Calibration certificate of the reference standard,Gauge block certificate: U = 0.10 µm (k = 2),"Normal (U, k)",0.0001,absolute,mm,k = 2,2,0.00005,-1,-0.00005,inf,0.01704674597
+2,Repeatability of caliper readings,u(rep),A,Repeatability (this measurement),10 readings taken during this calibration,Type A (readings),n=10; mean=100.003; s=0.006749485577,absolute,mm,√10,3.16227766,0.002134374746,1,0.002134374746,9,31.06295932
+3,Caliper resolution,u(res),B,Resolution of the indication,Digital resolution 0.01 mm,Resolution,0.01,absolute,mm,√12 (=2√3),3.464101615,0.002886751346,1,0.002886751346,inf,56.82248655
+4,Temperature difference caliper / gauge block,u(Δt),B,Environmental conditions,Lab log: 20 ± 1 °C; ΔL = L·α·Δt = 100 mm × 11.5e-6/°C × 1 °C,Rectangular,0.00115,absolute,mm,√3,1.732050808,0.0006639528096,1,0.0006639528096,inf,3.005909539
+5,"Jaw flatness / parallelism (Abbe, contact)",u(jaw),B,Manufacturer specification,Manufacturer jaw flatness ±2 µm,Rectangular,0.002,absolute,mm,√3,1.732050808,0.001154700538,1,0.001154700538,inf,9.091597848
+
+Estimate y,0.003,mm
+Combined standard uncertainty uc,0.003829563364,mm
+Effective degrees of freedom veff,93.27319506
+Degrees of freedom used for k,93
+Coverage probability (%),95.45
+Coverage factor k,2.027239387
+Expanded uncertainty U,0.007763441687,mm
+Reported (GUM 7.2.6),0.0030 ± 0.0078,mm
+
+Method,"Uncertainty evaluated per JCGM 100:2008 (GUM) and NIST TN 1297: standard uncertainties from Type A (statistical) and Type B evaluations, combined by the law of propagation of uncertainty (first-order Taylor series, GUM 5.1.2 / 5.2.2), effective degrees of freedom by the Welch–Satterthwaite formula (GUM G.4.1), coverage factor from the Student t-distribution (GUM G.3/G.6.4), and reported to two significant digits (GUM 7.2.6)."
+Reference 1,"JCGM 100:2008 (GUM 1995 with minor corrections), Evaluation of measurement data – Guide to the expression of uncertainty in measurement."
+Reference 2,"NIST Technical Note 1297 (1994), B. N. Taylor & C. E. Kuyatt, Guidelines for Evaluating and Expressing the Uncertainty of NIST Measurement Results."
+Reference 3,"ISO/IEC 17025:2017, General requirements for the competence of testing and calibration laboratories, clause 7.6 (evaluation of measurement uncertainty) and 7.8.4 (calibration certificates)."
+Reference 4,"ILAC P14:09/2020, ILAC Policy for Measurement Uncertainty in Calibration."
+Reference 5,"EA-4/02 M:2022, Evaluation of the Uncertainty of Measurement in Calibration."

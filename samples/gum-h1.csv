@@ -1,0 +1,31 @@
+Uncertainty budget,GUM H.1 – End-gauge calibration (worked example)
+Measurand,Length of end gauge at 20 °C,l,mm
+Model,l = lS + d - lS*(dalpha*theta + alphaS*dtheta)
+Laboratory,Worked example,Prepared by,,Date,2026-10-08
+
+#,Component,Symbol,Type,Source,Source details,Distribution,Input value,Input scale,Input unit,Divisor,Divisor value,u(xi),ci,ci*u(xi),Degrees of freedom,% contribution
+1,Calibration of the standard end gauge,u(lS),B,Calibration certificate of the reference standard,"Certificate: U = 0.075 µm, k = 3, νeff = 18 (GUM H.1.3.1)","Normal (U, k)",0.000075,absolute,mm,k = 3,3,0.000025,1,0.000025,18,62.36036885
+2,Repeated observations of the difference,u(d̄),A,Historical / pooled data,Pooled s = 13 nm from 25 observations; mean of 5 readings (GUM H.1.3.2),Type A (pooled),s_p=0.000013,absolute,mm,√5,2.236067977,0.000005813776741,0.9999999351,0.000005813776364,24,3.372448309
+3,Comparator – random effects,u(d1),B,Calibration certificate of the reference standard,"Comparator certificate: ±0.01 µm at 95 %, 6 replicates (ν = 5)","Normal (U, p %)",0.00001,absolute,mm,"t(95 %, ν=5) = 2.571",2.570581836,0.000003890169868,0.9999999029,0.00000389016949,5,1.509960912
+4,Comparator – systematic effects,u(d2),B,Calibration certificate of the reference standard,"Comparator certificate: 0.02 µm at ""three sigma""; reliable to 25 % -> ν = 8","Normal (U, k)",0.00002,absolute,mm,k = 3,3,0.000006666666667,0.9999999584,0.000006666666389,8,4.434514749
+5,Thermal expansion coefficient of standard,u(αS),B,Reference data / handbooks,"αS = 11.5e-6 /°C, rectangular ±2e-6 /°C (GUM H.1.3.3)",Rectangular,0.000002,absolute,1/°C,√3,1.732050808,0.000001154700538,0,0,inf,0
+6,Mean temperature of bed,u(θ̄),B,Environmental conditions,Reported (19.9 ± 0.5) °C; u(θ̄) = 0.2 °C (GUM H.1.3.4),Standard uncertainty,0.2,absolute,°C,1,1,0.2,0,0,inf,0
+7,Cyclic variation of room temperature,u(Δ),B,Environmental conditions,"Cyclic ±0.5 °C, U-shaped (arcsine) (GUM H.1.3.4)",U-shaped,0.5,absolute,°C,√2,1.414213562,0.3535533906,0,0,inf,0
+8,Difference in expansion coefficients,u(δα),B,Reference data / handbooks,"Bounds ±1e-6 /°C rectangular, reliable to 10 % -> ν = 50 (GUM H.1.3.5)",Rectangular,0.000001,absolute,1/°C,√3,1.732050808,5.773502692e-7,5.000062348,0.000002886787343,50,0.831492321
+9,Difference in temperature of gauges,u(δθ),B,Environmental conditions,"Bounds ±0.05 °C rectangular, reliable to 50 % -> ν = 2 (GUM H.1.3.6)",Rectangular,0.05,absolute,°C,√3,1.732050808,0.02886751346,-0.00057500717,-0.00001659902722,2,27.49121486
+
+Estimate y,50.000838,mm
+Combined standard uncertainty uc,0.0000316581601,mm
+Effective degrees of freedom veff,16.74114832
+Degrees of freedom used for k,16
+Coverage probability (%),99
+Coverage factor k,2.920781622
+Expanded uncertainty U,0.00009246657221,mm
+Reported (GUM 7.2.6),50.000838 ± 0.000092,mm
+
+Method,"Uncertainty evaluated per JCGM 100:2008 (GUM) and NIST TN 1297: standard uncertainties from Type A (statistical) and Type B evaluations, combined by the law of propagation of uncertainty (first-order Taylor series, GUM 5.1.2 / 5.2.2), effective degrees of freedom by the Welch–Satterthwaite formula (GUM G.4.1), coverage factor from the Student t-distribution (GUM G.3/G.6.4), and reported to two significant digits (GUM 7.2.6)."
+Reference 1,"JCGM 100:2008 (GUM 1995 with minor corrections), Evaluation of measurement data – Guide to the expression of uncertainty in measurement."
+Reference 2,"NIST Technical Note 1297 (1994), B. N. Taylor & C. E. Kuyatt, Guidelines for Evaluating and Expressing the Uncertainty of NIST Measurement Results."
+Reference 3,"ISO/IEC 17025:2017, General requirements for the competence of testing and calibration laboratories, clause 7.6 (evaluation of measurement uncertainty) and 7.8.4 (calibration certificates)."
+Reference 4,"ILAC P14:09/2020, ILAC Policy for Measurement Uncertainty in Calibration."
+Reference 5,"EA-4/02 M:2022, Evaluation of the Uncertainty of Measurement in Calibration."

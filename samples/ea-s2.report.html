@@ -1,0 +1,106 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>EA-4/02 S2 – Calibration of a 10 kg weight (worked example) – Uncertainty budget</title>
+<style>
+  body{font:12px/1.4 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#111;margin:24px;}
+  h1{font-size:18px;margin:0 0 4px} h2{font-size:14px;margin:18px 0 6px;border-bottom:1px solid #999}
+  table{border-collapse:collapse;width:100%;margin:6px 0} th,td{border:1px solid #bbb;padding:3px 5px;vertical-align:top;text-align:left}
+  th{background:#eef2f7;font-size:11px} td.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .meta td{border:none;padding:1px 8px 1px 0} .sym{font-style:italic;color:#333} .note{color:#555;font-size:10.5px}
+  .result{border:2px solid #1d4ed8;padding:8px 12px;margin:10px 0;background:#f3f6ff} .big{font-size:16px;font-weight:700}
+  .summary td{padding:3px 8px} li.err{color:#b00020} .foot{color:#555;font-size:10.5px;margin-top:16px}
+  .sig{margin-top:28px;display:flex;gap:40px} .sig div{border-top:1px solid #333;padding-top:3px;min-width:200px}
+  @media print{body{margin:10mm} @page{size:landscape;margin:10mm} tr{page-break-inside:avoid}}
+</style></head><body>
+<h1>Measurement uncertainty budget – EA-4/02 S2 – Calibration of a 10 kg weight (worked example)</h1>
+<table class="meta"><tr><td><b>Laboratory:</b> Worked example</td><td><b>Prepared by:</b> —</td><td><b>Date:</b> 2026-10-08</td></tr>
+<tr><td><b>Procedure:</b> EA-4/02 M:2022 Supplement S2</td><td><b>Equipment:</b> Mass comparator, F2 10 kg standard</td><td><b>Conditions:</b> —</td></tr></table>
+<h2>Measurand and measurement model</h2>
+<p><b>Conventional mass of the 10 kg weight</b> (mX, g). OIML class M1 weight compared with an F2 reference standard on a mass comparator.</p>
+<p>Model: <code>mX = mS + dmD + dm + dmC + dB</code>. Sensitivity coefficients marked “model” are the partial derivatives ∂f/∂x<sub>i</sub> evaluated numerically at the input estimates (GUM 5.1.3).</p><table class="vars"><thead><tr><th>Variable</th><th>Estimate</th><th>Unit</th><th>Description</th></tr></thead><tbody><tr><td>mS</td><td class="n">10000.005</td><td>g</td><td>Conventional mass of the standard</td></tr><tr><td>dmD</td><td class="n">0</td><td>g</td><td>Drift of the standard since last calibration</td></tr><tr><td>dm</td><td class="n">0.02</td><td>g</td><td>Observed difference (mean of 3 comparisons)</td></tr><tr><td>dmC</td><td class="n">0</td><td>g</td><td>Correction for eccentricity and magnetic effects</td></tr><tr><td>dB</td><td class="n">0</td><td>g</td><td>Correction for air buoyancy</td></tr></tbody></table>
+<h2>Uncertainty budget</h2>
+<table><thead><tr><th>#</th><th>Component</th><th>Source of data</th><th>Type</th><th>Distribution</th><th>Input value</th><th>Divisor</th><th>u(x<sub>i</sub>)</th><th>c<sub>i</sub></th><th>c<sub>i</sub>·u(x<sub>i</sub>)<br>[g]</th><th>ν<sub>i</sub></th><th>% contrib.</th></tr></thead>
+<tbody><tr>
+        <td>1</td>
+        <td><strong>Reference standard</strong><br><span class="sym">u(mS)</span></td>
+        <td>Calibration certificate of the reference standard<br><span class="note">Certificate: 10 000.005 g, U = 45 mg (k = 2)</span></td>
+        <td>B</td>
+        <td>Normal (U, k)</td>
+        <td class="n">0.045 g</td>
+        <td class="n">k = 2</td>
+        <td class="n">0.0225 g</td>
+        <td class="n">1</td>
+        <td class="n">0.0225</td>
+        <td class="n">∞</td>
+        <td class="n">59.1 %</td>
+      </tr><tr>
+        <td>2</td>
+        <td><strong>Drift of the standard</strong><br><span class="sym">u(δmD)</span></td>
+        <td>Drift / stability of the reference standard<br><span class="note">From previous calibrations: zero within ±15 mg</span></td>
+        <td>B</td>
+        <td>Rectangular</td>
+        <td class="n">0.015 g</td>
+        <td class="n">√3</td>
+        <td class="n">0.00866 g</td>
+        <td class="n">1</td>
+        <td class="n">0.00866</td>
+        <td class="n">∞</td>
+        <td class="n">8.8 %</td>
+      </tr><tr>
+        <td>3</td>
+        <td><strong>Comparator repeatability (observed difference)</strong><br><span class="sym">u(δm)</span></td>
+        <td>Historical / pooled data<br><span class="note">Pooled s = 25 mg from earlier evaluation; mean of 3 comparisons. EA: dof &quot;large&quot; (50 assumed here).</span></td>
+        <td>A</td>
+        <td>Type A (pooled)</td>
+        <td class="n">s<sub>p</sub> = 0.025, m = 3 g</td>
+        <td class="n">√3</td>
+        <td class="n">0.01443 g</td>
+        <td class="n">1</td>
+        <td class="n">0.01443</td>
+        <td class="n">50</td>
+        <td class="n">24.3 %</td>
+      </tr><tr>
+        <td>4</td>
+        <td><strong>Comparator eccentricity &amp; magnetic effects</strong><br><span class="sym">u(δmC)</span></td>
+        <td>Manufacturer specification<br><span class="note">Rectangular limits ±10 mg</span></td>
+        <td>B</td>
+        <td>Rectangular</td>
+        <td class="n">0.01 g</td>
+        <td class="n">√3</td>
+        <td class="n">0.005774 g</td>
+        <td class="n">1</td>
+        <td class="n">0.005774</td>
+        <td class="n">∞</td>
+        <td class="n">3.9 %</td>
+      </tr><tr>
+        <td>5</td>
+        <td><strong>Air buoyancy</strong><br><span class="sym">u(δB)</span></td>
+        <td>Environmental conditions<br><span class="note">Limits ±1×10⁻⁶ of nominal value (±10 mg)</span></td>
+        <td>B</td>
+        <td>Rectangular</td>
+        <td class="n">1 ppm g</td>
+        <td class="n">√3</td>
+        <td class="n">0.005774 g</td>
+        <td class="n">1</td>
+        <td class="n">0.005774</td>
+        <td class="n">∞</td>
+        <td class="n">3.9 %</td>
+      </tr></tbody></table>
+
+<h2>Results</h2>
+<table class="summary">
+<tr><td>Estimate of the measurand y</td><td class="n">10000.025 g</td></tr>
+<tr><td>Combined standard uncertainty u<sub>c</sub>(y)</td><td class="n">0.029262 g</td></tr>
+<tr><td>Relative combined standard uncertainty u<sub>c</sub>/|y|</td><td class="n">2.93e-6</td></tr>
+<tr><td>Effective degrees of freedom ν<sub>eff</sub> (Welch–Satterthwaite)</td><td class="n">845</td></tr>
+<tr><td>Coverage</td><td class="n">fixed k</td></tr>
+<tr><td>Coverage factor k</td><td class="n">2.000</td></tr>
+<tr><td>Expanded uncertainty U = k·u<sub>c</sub></td><td class="n">0.058523 g</td></tr>
+</table>
+<div class="result"><div class="big">mX = (10000.025 ± 0.059) g</div>
+<div>mX = (10000.025 ± 0.059) g. The reported expanded uncertainty U = k·uc is based on a combined standard uncertainty uc = 0.029 g multiplied by a coverage factor k = 2 (fixed), which for a normal distribution corresponds to a coverage probability of approximately 95 %.</div></div>
+
+<h2>Notes</h2><p>Published (EA-4/02 M:2022): u(mX) = 29.2 mg, U = 58 mg with rounded table values; the unrounded inputs give 29.26 mg -&gt; U = 58.5 mg.</p>
+<h2>Method</h2><p>Uncertainty evaluated per JCGM 100:2008 (GUM) and NIST TN 1297: standard uncertainties from Type A (statistical) and Type B evaluations, combined by the law of propagation of uncertainty (first-order Taylor series, GUM 5.1.2 / 5.2.2), effective degrees of freedom by the Welch–Satterthwaite formula (GUM G.4.1), coverage factor from the Student t-distribution (GUM G.3/G.6.4), and reported to two significant digits (GUM 7.2.6). Rounding: rounded to nearest.</p>
+<h2>References</h2><ol><li>JCGM 100:2008 (GUM 1995 with minor corrections), Evaluation of measurement data – Guide to the expression of uncertainty in measurement.</li><li>NIST Technical Note 1297 (1994), B. N. Taylor &amp; C. E. Kuyatt, Guidelines for Evaluating and Expressing the Uncertainty of NIST Measurement Results.</li><li>ISO/IEC 17025:2017, General requirements for the competence of testing and calibration laboratories, clause 7.6 (evaluation of measurement uncertainty) and 7.8.4 (calibration certificates).</li><li>ILAC P14:09/2020, ILAC Policy for Measurement Uncertainty in Calibration.</li><li>EA-4/02 M:2022, Evaluation of the Uncertainty of Measurement in Calibration.</li></ol>
+<div class="sig"><div>Prepared by / date</div><div>Reviewed / approved by / date</div></div>
+<p class="foot">Generated by Uncertainty Budget Calculator Made Simple on 2026-10-08 23:32 UTC. The laboratory remains responsible for the validity of the model, inputs and their sources (ISO/IEC 17025 7.6).</p>
+</body></html>

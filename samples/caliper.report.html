@@ -1,0 +1,106 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Digital caliper at 100 mm (illustrative) – Uncertainty budget</title>
+<style>
+  body{font:12px/1.4 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#111;margin:24px;}
+  h1{font-size:18px;margin:0 0 4px} h2{font-size:14px;margin:18px 0 6px;border-bottom:1px solid #999}
+  table{border-collapse:collapse;width:100%;margin:6px 0} th,td{border:1px solid #bbb;padding:3px 5px;vertical-align:top;text-align:left}
+  th{background:#eef2f7;font-size:11px} td.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .meta td{border:none;padding:1px 8px 1px 0} .sym{font-style:italic;color:#333} .note{color:#555;font-size:10.5px}
+  .result{border:2px solid #1d4ed8;padding:8px 12px;margin:10px 0;background:#f3f6ff} .big{font-size:16px;font-weight:700}
+  .summary td{padding:3px 8px} li.err{color:#b00020} .foot{color:#555;font-size:10.5px;margin-top:16px}
+  .sig{margin-top:28px;display:flex;gap:40px} .sig div{border-top:1px solid #333;padding-top:3px;min-width:200px}
+  @media print{body{margin:10mm} @page{size:landscape;margin:10mm} tr{page-break-inside:avoid}}
+</style></head><body>
+<h1>Measurement uncertainty budget – Digital caliper at 100 mm (illustrative)</h1>
+<table class="meta"><tr><td><b>Laboratory:</b> —</td><td><b>Prepared by:</b> —</td><td><b>Date:</b> 2026-10-08</td></tr>
+<tr><td><b>Procedure:</b> —</td><td><b>Equipment:</b> —</td><td><b>Conditions:</b> —</td></tr></table>
+<h2>Measurand and measurement model</h2>
+<p><b>Error of indication of a 0–150 mm digital caliper at 100 mm</b> (E, mm). Outside jaws measuring a 100 mm grade 0 steel gauge block. E = mean caliper reading − gauge block length. Illustrative values only.</p>
+<p>No explicit model entered; sensitivity coefficients were entered by the user.</p>
+<h2>Uncertainty budget</h2>
+<table><thead><tr><th>#</th><th>Component</th><th>Source of data</th><th>Type</th><th>Distribution</th><th>Input value</th><th>Divisor</th><th>u(x<sub>i</sub>)</th><th>c<sub>i</sub></th><th>c<sub>i</sub>·u(x<sub>i</sub>)<br>[mm]</th><th>ν<sub>i</sub></th><th>% contrib.</th></tr></thead>
+<tbody><tr>
+        <td>1</td>
+        <td><strong>Gauge block calibration</strong><br><span class="sym">u(Lgb)</span></td>
+        <td>Calibration certificate of the reference standard<br><span class="note">Gauge block certificate: U = 0.10 µm (k = 2)</span></td>
+        <td>B</td>
+        <td>Normal (U, k)</td>
+        <td class="n">1e-4 mm</td>
+        <td class="n">k = 2</td>
+        <td class="n">5e-5 mm</td>
+        <td class="n">-1</td>
+        <td class="n">-5e-5</td>
+        <td class="n">∞</td>
+        <td class="n">0.0 %</td>
+      </tr><tr>
+        <td>2</td>
+        <td><strong>Repeatability of caliper readings</strong><br><span class="sym">u(rep)</span></td>
+        <td>Repeatability (this measurement)<br><span class="note">10 readings taken during this calibration</span></td>
+        <td>A</td>
+        <td>Type A (readings)</td>
+        <td class="n">n = 10, x̄ = 100.003, s = 0.006749 mm</td>
+        <td class="n">√10</td>
+        <td class="n">0.002134 mm</td>
+        <td class="n">1</td>
+        <td class="n">0.002134</td>
+        <td class="n">9</td>
+        <td class="n">31.1 %</td>
+      </tr><tr>
+        <td>3</td>
+        <td><strong>Caliper resolution</strong><br><span class="sym">u(res)</span></td>
+        <td>Resolution of the indication<br><span class="note">Digital resolution 0.01 mm</span></td>
+        <td>B</td>
+        <td>Resolution</td>
+        <td class="n">0.01 mm</td>
+        <td class="n">√12 (=2√3)</td>
+        <td class="n">0.002887 mm</td>
+        <td class="n">1</td>
+        <td class="n">0.002887</td>
+        <td class="n">∞</td>
+        <td class="n">56.8 %</td>
+      </tr><tr>
+        <td>4</td>
+        <td><strong>Temperature difference caliper / gauge block</strong><br><span class="sym">u(Δt)</span></td>
+        <td>Environmental conditions<br><span class="note">Lab log: 20 ± 1 °C; ΔL = L·α·Δt = 100 mm × 11.5e-6/°C × 1 °C</span></td>
+        <td>B</td>
+        <td>Rectangular</td>
+        <td class="n">0.00115 mm</td>
+        <td class="n">√3</td>
+        <td class="n">6.64e-4 mm</td>
+        <td class="n">1</td>
+        <td class="n">6.64e-4</td>
+        <td class="n">∞</td>
+        <td class="n">3.0 %</td>
+      </tr><tr>
+        <td>5</td>
+        <td><strong>Jaw flatness / parallelism (Abbe, contact)</strong><br><span class="sym">u(jaw)</span></td>
+        <td>Manufacturer specification<br><span class="note">Manufacturer jaw flatness ±2 µm</span></td>
+        <td>B</td>
+        <td>Rectangular</td>
+        <td class="n">0.002 mm</td>
+        <td class="n">√3</td>
+        <td class="n">0.001155 mm</td>
+        <td class="n">1</td>
+        <td class="n">0.001155</td>
+        <td class="n">∞</td>
+        <td class="n">9.1 %</td>
+      </tr></tbody></table>
+
+<h2>Results</h2>
+<table class="summary">
+<tr><td>Estimate of the measurand y</td><td class="n">0.003 mm</td></tr>
+<tr><td>Combined standard uncertainty u<sub>c</sub>(y)</td><td class="n">0.0038296 mm</td></tr>
+<tr><td>Relative combined standard uncertainty u<sub>c</sub>/|y|</td><td class="n">1.28</td></tr>
+<tr><td>Effective degrees of freedom ν<sub>eff</sub> (Welch–Satterthwaite)</td><td class="n">93.3</td></tr>
+<tr><td>Coverage</td><td class="n">p = 95.45 %, ν used = 93 (truncated, GUM G.6.4)</td></tr>
+<tr><td>Coverage factor k</td><td class="n">2.027</td></tr>
+<tr><td>Expanded uncertainty U = k·u<sub>c</sub></td><td class="n">0.0077634 mm</td></tr>
+</table>
+<div class="result"><div class="big">E = (0.0030 ± 0.0078) mm</div>
+<div>E = (0.0030 ± 0.0078) mm. The reported expanded uncertainty U = k·uc is based on a combined standard uncertainty uc = 0.0038 mm multiplied by a coverage factor k = 2.027 from the t-distribution for ν = 93 (νeff = 93.3), level of confidence approximately 95.45 %, defining an interval estimated to have a level of confidence of approximately 95.45 %.</div></div>
+
+
+<h2>Method</h2><p>Uncertainty evaluated per JCGM 100:2008 (GUM) and NIST TN 1297: standard uncertainties from Type A (statistical) and Type B evaluations, combined by the law of propagation of uncertainty (first-order Taylor series, GUM 5.1.2 / 5.2.2), effective degrees of freedom by the Welch–Satterthwaite formula (GUM G.4.1), coverage factor from the Student t-distribution (GUM G.3/G.6.4), and reported to two significant digits (GUM 7.2.6). Rounding: rounded to nearest.</p>
+<h2>References</h2><ol><li>JCGM 100:2008 (GUM 1995 with minor corrections), Evaluation of measurement data – Guide to the expression of uncertainty in measurement.</li><li>NIST Technical Note 1297 (1994), B. N. Taylor &amp; C. E. Kuyatt, Guidelines for Evaluating and Expressing the Uncertainty of NIST Measurement Results.</li><li>ISO/IEC 17025:2017, General requirements for the competence of testing and calibration laboratories, clause 7.6 (evaluation of measurement uncertainty) and 7.8.4 (calibration certificates).</li><li>ILAC P14:09/2020, ILAC Policy for Measurement Uncertainty in Calibration.</li><li>EA-4/02 M:2022, Evaluation of the Uncertainty of Measurement in Calibration.</li></ol>
+<div class="sig"><div>Prepared by / date</div><div>Reviewed / approved by / date</div></div>
+<p class="foot">Generated by Uncertainty Budget Calculator Made Simple on 2026-10-08 23:32 UTC. The laboratory remains responsible for the validity of the model, inputs and their sources (ISO/IEC 17025 7.6).</p>
+</body></html>
